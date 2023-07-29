@@ -20,6 +20,7 @@
     <div id="book-form-container">
         <form action="" method="get" id="book-form">
             <legend>Book details</legend>
+            <p id="error-message"></p>
             <div class="text-input">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" placeholder="title" required>
@@ -30,7 +31,7 @@
             </div>
             <div class="boolean-input">
                 <label for="isRead">Read</label>
-                <input type="checkbox" id="isRead" name="isRead" value="yes" required>
+                <input type="checkbox" id="isRead" name="isRead" value="yes">
             </div>
             <button type="submit" id="add-book-btn">Add this book</button>
         </form>
