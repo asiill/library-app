@@ -7,8 +7,10 @@ function Book(title, author, isRead) {
 }
 
 const bookForm = document.getElementById("book-form");
+bookForm.style.display = "none";
 
 const newBookBtn = document.getElementById("new-book-btn");
+newBookBtn.addEventListener("click", () => bookForm.style.display = "block");
 
 const errorMessage = document.getElementById("error-message");
 const libraryContainer = document.getElementById("library-container");
