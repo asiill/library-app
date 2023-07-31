@@ -34,9 +34,13 @@ function createBookContainer(book) {
     isRead.classList.add("read-btn");
     removeBookBtn.classList.add("remove-book-btn");
 
+    removeBookBtn.addEventListener("click", () => {
+        removeBookFromLibrary(book);
+    })
+
     title.textContent = book.title;
     author.textContent = book.author;
-    removeBookBtn.textContent = "Remove";
+    removeBookBtn.textContent = "Remove";    
 
     if (book.isRead) {
         isRead.textContent = "Read";
@@ -60,7 +64,7 @@ function updateLibraryContainer() {
 }
 
 function toggleStatus(book) {
-
+    
 }
 
 function isInLibrary(book) {
@@ -68,6 +72,9 @@ function isInLibrary(book) {
 }
 
 function removeBookFromLibrary(book) {
+    let bookIndex = library.indexOf(book);
+    library.splice(bookIndex, 1);
+    updateLibraryContainer();
 }
 
 function resetBookForm() {
