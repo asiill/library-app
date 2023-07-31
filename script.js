@@ -63,12 +63,17 @@ function toggleStatus(book) {
 
 }
 
-function isInLibrary(newBook) {
-    return library.some(book => book.title === newBook.title && book.author === newBook.author);
+function isInLibrary(book) {
+    return library.some(item => item.title === book.title && item.author === book.author);
 }
 
 function removeBookFromLibrary(book) {
-    
+}
+
+function resetBookForm() {
+    bookForm.style.display = "none";
+    bookForm.reset();
+    errorMessage.textContent = "";
 }
 
 function addBookToLibrary() {
@@ -80,11 +85,10 @@ function addBookToLibrary() {
         library.push(newBook);
         updateLibraryContainer();
     }
+    resetBookForm();
 }
 
 bookForm.addEventListener("submit", function(e) {
     e.preventDefault();
     addBookToLibrary();
-    bookForm.style.display = "none";
-    bookForm.reset();
 });
