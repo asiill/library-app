@@ -22,11 +22,39 @@ function getBookFromInput() {
 }
 
 function createBookContainer(book) {
+    const bookContainer = document.createElement("div");
+    const title = document.createElement("p");
+    const author = document.createElement("p");
+    const isRead = document.createElement("button");
+    const removeBookBtn = document.createElement("button");
 
+    bookContainer.classList.add("book-container");
+    isRead.classList.add("read-btn");
+    removeBookBtn.classList.add("remove-book-btn");
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    removeBookBtn.textContent = "Remove";
+
+    if (book.isRead) {
+        isRead.textContent = "Read";
+    } else {
+        isRead.textContent = "Not Read";
+    }
+
+    bookContainer.appendChild(title);
+    bookContainer.appendChild(author);
+    bookContainer.appendChild(isRead);
+    bookContainer.appendChild(removeBookBtn);
+    libraryContainer.appendChild(bookContainer);
 }
 
 function updateLibraryContainer() {
-
+    libraryContainer.textContent = "";
+    for (i = 0; i < library.length; i++){
+        let book = library[i];
+        createBookContainer(book);
+    }
 }
 
 function toggleStatus(book) {
@@ -48,11 +76,13 @@ function addBookToLibrary() {
         return;
     } else {
         library.push(newBook);
-        console.log(newBook);
+        updateLibraryContainer();
     }
 }
 
 bookForm.addEventListener("submit", function(e) {
     e.preventDefault();
     addBookToLibrary();
+    bookForm.style.display = "none";
+    bookForm.reset();
 });
