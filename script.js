@@ -48,8 +48,10 @@ function createBookContainer(book) {
 
     if (book.isRead) {
         isRead.textContent = "Read";
+        isRead.classList.add("read");
     } else {
         isRead.textContent = "Not Read";
+        isRead.classList.add("not-read");
     }
 
     bookContainer.appendChild(title);
