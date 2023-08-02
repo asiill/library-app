@@ -44,7 +44,7 @@ function createBookContainer(book) {
 
     title.textContent = book.title;
     author.textContent = book.author;
-    removeBookBtn.textContent = "Remove";    
+    removeBookBtn.textContent = "X";    
 
     if (book.isRead) {
         isRead.textContent = "Read";
