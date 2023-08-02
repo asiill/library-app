@@ -54,10 +54,10 @@ function createBookContainer(book) {
         isRead.classList.add("not-read");
     }
 
+    bookContainer.appendChild(removeBookBtn);
     bookContainer.appendChild(title);
     bookContainer.appendChild(author);
     bookContainer.appendChild(isRead);
-    bookContainer.appendChild(removeBookBtn);
     libraryContainer.appendChild(bookContainer);
 }
 
