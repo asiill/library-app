@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     
 }
@@ -80,18 +84,37 @@ input:invalid {
 
 #library-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
 }
 
 .book-container {
+    margin: 40px;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 5px;
 
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-y: scroll;
 }
 
 .read-btn {
-    
+    align-self: last baseline;
+}
+
+.read {
+    color: green;
+}
+
+.not-read {
+    color: red;
 }
 
 .remove-book-btn {
-    color: red;
+    align-self: last baseline;
 }
