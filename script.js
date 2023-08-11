@@ -1,4 +1,4 @@
-let library = [];
+let library;
 
 function Book(title, author, isRead) {
     this.title = title;
@@ -69,9 +69,23 @@ function updateLibraryContainer() {
     }
 }
 
+function setLocalStorage() {
+    localStorage.setItem("library", JSON.stringify(library));
+}
+
+(function getLocalStorage() {
+    if (localStorage.getItem("library")) {
+        library = JSON.parse(localStorage.getItem("library"));
+        updateLibraryContainer();
+    } else {
+        library = [];
+    }
+})();
+
 function toggleStatus(book) {
     book.isRead = !book.isRead;
     updateLibraryContainer();
+    setLocalStorage();
 }
 
 function isInLibrary(book) {
@@ -82,6 +96,7 @@ function removeBookFromLibrary(book) {
     let bookIndex = library.indexOf(book);
     library.splice(bookIndex, 1);
     updateLibraryContainer();
+    setLocalStorage();
 }
 
 function resetBookForm() {
@@ -98,6 +113,7 @@ function addBookToLibrary() {
     } else {
         library.push(newBook);
         updateLibraryContainer();
+        setLocalStorage();
     }
     resetBookForm();
 }
