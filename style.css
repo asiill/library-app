@@ -6,10 +6,45 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    background-color: #f8edeb;
 }
 
 .header {
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    color: black;
+    background-color: #fae1dd;
+    border-radius: 0.6rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.548);
+}
+
+button {
+    padding: 0.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 0.3rem;
+    background-color: #d8e2dc;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    border-color: rgb(240, 113, 103);
+    opacity: 0.8;
+}
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+img {
+    width: 20px;
+    height: 20px;
 }
 
 #new-book-btn-container {
@@ -17,11 +52,10 @@ body {
 }
 
 #new-book-btn {
-
-}
-
-#book-form-container {
-
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 #book-form {
@@ -31,6 +65,7 @@ body {
     border: 1px solid #f5f5f5;
     border-radius: 5px;
     box-shadow: 0 4px 2px -2px #808080;
+    background-color: #ece4db;
 }
 
 legend {
@@ -46,15 +81,20 @@ legend {
 }
 
 .boolean-input {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     display: flex;
-    align-items: start;
-    gap: 20px;
+    align-items: center;
+    gap: 5px;
 }
 
-label {
-    margin-bottom: 10px;
+#isRead {
+    width: 20px;
+    height: 20px;
+}
+
+.text-input>label {
+   margin-bottom: 10px;
 }
 
 input[type="text"] {
@@ -82,6 +122,15 @@ input:invalid {
 #add-book-btn {
     text-align: center;
     margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#add-book-btn:hover {
+    background-color: lightgreen;
 }
 
 #library-container {
@@ -95,6 +144,7 @@ input:invalid {
     padding: 20px;
     border: 1px solid #000000;
     border-radius: 5px;
+    background-color: #e8e8e4;
 
     display: flex;
     flex-direction: column;
@@ -105,18 +155,35 @@ input:invalid {
     overflow-y: scroll;
 }
 
-.read-btn {
-    align-self: last baseline;
+.isRead-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+
+.isRead-text {
+    font-style: italic;
 }
 
 .read {
-    color: green;
+    color: rgb(0, 128, 0);
 }
 
 .not-read {
-    color: red;
+    color: rgb(255, 0, 0);
 }
 
-.remove-book-btn {
-    align-self: last baseline;
+.remove-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.remove-book-btn:hover {
+    background-color: rgb(255, 0, 0);
 }

@@ -27,14 +27,18 @@ function createBookContainer(book) {
     const bookContainer = document.createElement("div");
     const title = document.createElement("p");
     const author = document.createElement("p");
-    const isRead = document.createElement("button");
     const removeBookBtn = document.createElement("button");
+
+    const isRead = document.createElement("input");
+    isRead.setAttribute("type", "checkbox");
+    const isReadText = document.createElement("span");
 
     bookContainer.classList.add("book-container");
     isRead.classList.add("read-btn");
     removeBookBtn.classList.add("remove-book-btn");
+    isReadText.classList.add("isRead-text");
 
-    isRead.addEventListener("click", () => {
+    isRead.addEventListener("change", () => {
         toggleStatus(book);
     });
 
@@ -43,21 +47,37 @@ function createBookContainer(book) {
     });
 
     title.textContent = book.title;
-    author.textContent = book.author;
-    removeBookBtn.textContent = "X";    
+    author.textContent = book.author;    
 
     if (book.isRead) {
-        isRead.textContent = "Read";
-        isRead.classList.add("read");
+        isRead.checked = true;
+        isReadText.textContent = "Read";
+        isReadText.classList.add("read");
     } else {
-        isRead.textContent = "Not Read";
-        isRead.classList.add("not-read");
+        isRead.checked = false;
+        isReadText.textContent = "Not read";
+        isReadText.classList.add("not-read");
     }
 
-    bookContainer.appendChild(removeBookBtn);
+    const isReadContainer = document.createElement("div");
+    isReadContainer.classList.add("isRead-container");
+    isReadContainer.appendChild(isReadText);
+    isReadContainer.appendChild(isRead);
+
+    const delImg = document.createElement("img");
+    delImg.src = "./icons/delete.svg";
+    delImg.alt = "Delete project";
+    delImg.title="Delete project";
+    removeBookBtn.appendChild(delImg);
+
+    const removeBtnContainer = document.createElement("div");
+    removeBtnContainer.classList.add("remove-btn-container");
+    removeBtnContainer.appendChild(removeBookBtn);
+
+    bookContainer.appendChild(removeBtnContainer);
     bookContainer.appendChild(title);
     bookContainer.appendChild(author);
-    bookContainer.appendChild(isRead);
+    bookContainer.appendChild(isReadContainer);
     libraryContainer.appendChild(bookContainer);
 }
 
