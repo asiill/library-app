@@ -149,10 +149,6 @@ input:invalid {
     display: flex;
     flex-direction: column;
     gap: 5px;
-
-    word-wrap: break-word;
-    word-break: break-all;
-    overflow-y: scroll;
 }
 
 .isRead-container {
