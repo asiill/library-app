@@ -55,7 +55,7 @@ img {
 }
 
 #book-form {
-    width: 600px;
+    max-width: 600px;
     margin: auto auto 50px auto;
     padding: 20px 30px 20px 20px;
     border: 1px solid #f5f5f5;
